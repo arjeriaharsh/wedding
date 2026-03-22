@@ -257,6 +257,24 @@
     animation: heartbeat 2s ease-in-out infinite;
   }
 
+  .hero-lineage {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.7rem, 2.2vw, 0.88rem);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    line-height: 1.55;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    margin: 0.15rem 0 0.1rem;
+    max-width: 340px;
+  }
+  .lineage-title {
+    font-style: normal;
+    color: var(--gold);
+    font-size: 0.85em;
+    letter-spacing: 0.03em;
+  }
+
   .hero-title {
     font-family: 'Cinzel', serif;
     font-size: clamp(1.3rem, 4.5vw, 2rem);
@@ -462,48 +480,6 @@
     line-height: 1;
   }
 
-  .parents-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  .parent-card {
-    background: rgba(255,255,255,0.07);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 0.8rem;
-    padding: 1rem 0.7rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    text-align: center;
-  }
-  .pc-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.56rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
-  .pc-photo {
-    width: 100px; height: 100px;
-    border-radius: 0.7rem;
-    overflow: hidden;
-    border: 2px solid var(--gold);
-    box-shadow: 0 5px 18px rgba(0,0,0,0.4);
-  }
-  .pc-photo img { width: 100%; height: 100%; object-fit: contain; display: block; background: rgba(255,255,255,0.05); }
-  .pc-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
-    color: rgba(255,255,255,0.9);
-    font-style: italic;
-    line-height: 1.3;
-  }
-
   .blessings-footer {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1rem, 3.5vw, 1.25rem);
@@ -526,11 +502,114 @@
     background: rgba(201,168,76,0.07);
   }
 
+  /* EVENT DATE/VENUE PILL */
+  .event-datetime {
+    margin-top: 0.5rem;
+    padding: 0.65rem 1.1rem;
+    border: 1px solid;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  .event-datetime-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .edt-icon { display: none; }
+  .edt-text {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.62rem, 2vw, 0.75rem);
+    letter-spacing: 0.03em;
+    font-weight: 600;
+  }
+
+  /* FAMILY COLUMNS (blessings page) */
+  .families-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    gap: 0.6rem;
+    width: 100%;
+  }
+  .family-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.3rem;
+  }
+  .family-col-header {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .family-col-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 0.5rem;
+    padding: 0.7rem 0.6rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.1rem;
+  }
+  .family-col-sep {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+    margin: 0.4rem auto;
+  }
+  .families-divider {
+    font-size: 1.3rem;
+    opacity: 0.7;
+    padding-top: 2.2rem;
+    align-self: flex-start;
+  }
+  .gp-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.72rem, 2.2vw, 0.85rem);
+    color: rgba(255,255,255,0.88);
+    font-style: italic;
+    line-height: 1.4;
+  }
+  .gp-note {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    margin-top: 0.12rem;
+    min-height: 0.85rem;
+  }
+  .pc-photo {
+    width: 90px; height: 90px;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    border: 2px solid var(--gold);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.4);
+  }
+  .pc-photo img { width: 100%; height: 100%; object-fit: contain; display: block; background: rgba(255,255,255,0.05); }
+  .pc-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.78rem, 2.4vw, 0.92rem);
+    color: rgba(255,255,255,0.9);
+    font-style: italic;
+    line-height: 1.3;
+    text-align: center;
+  }
+
   @media (max-width: 360px) {
     .hero-name { font-size: 2.8rem; }
     .pc-photo { width: 65px; height: 65px; }
     .parents-grid { gap: 0.7rem; }
     .parent-card { padding: 0.8rem 0.5rem; }
+    .gp-name { font-size: 0.72rem; }
   }
   @media (min-width: 600px) {
     .corner-svg { width: 120px; height: 120px; }
@@ -593,14 +672,22 @@
       <div class="hero-badge fade-in">Shubh Vivah 2026</div>
 
       <h1 class="hero-name fade-in" style="transition-delay:0.1s">Harsh Arjeria</h1>
+      <p class="hero-lineage fade-in" style="transition-delay:0.15s">
+        Grandson of Mrs. Kusum &amp; Mr. Akhilendu Arjeria <span class="lineage-title">(IAS Rtd.)</span><br>
+        Son of Mrs. Kirti &amp; Mr. Sudhanshu Arjeria
+      </p>
 
-      <div class="divider fade-in" style="transition-delay:0.17s">
+      <div class="divider fade-in" style="transition-delay:0.2s">
         <div class="divider-line"></div>
         <span class="hero-heart">❤️</span>
         <div class="divider-line"></div>
       </div>
 
-      <h1 class="hero-name fade-in" style="transition-delay:0.24s">Nidhi Gaur</h1>
+      <h1 class="hero-name fade-in" style="transition-delay:0.27s">Nidhi Gaur</h1>
+      <p class="hero-lineage fade-in" style="transition-delay:0.32s">
+        Granddaughter of Mrs. Prakashvati &amp; Late Mr. O. P. Sharma<br>
+        Daughter of Mrs. Aruna &amp; Mr. Arun Gaur
+      </p>
 
       <h2 class="hero-title fade-in" style="transition-delay:0.32s">Shubh Vivah</h2>
 
@@ -609,13 +696,6 @@
         <div class="divider-gem"></div>
         <div class="divider-line"></div>
       </div>
-
-      <div class="hero-card fade-in" style="transition-delay:0.44s">
-        <div class="hero-date">20 April 2026 &nbsp;·&nbsp; 7:00 PM onwards</div>
-        <div class="hero-venue">The Empire Resort, Gwalior</div>
-      </div>
-
-      <div class="countdown fade-in" id="countdown" style="transition-delay:0.5s"></div>
     </div>
 
     <div class="scroll-hint">
@@ -654,6 +734,17 @@
       <p class="event-desc fade-in" style="transition-delay:0.34s">
         Harsh &amp; Nidhi glowing in turmeric love —<br><em>blessings painted gold</em>
       </p>
+
+      <div class="event-datetime fade-in" style="transition-delay:0.4s;border-color:rgba(139,26,26,0.35);background:rgba(139,26,26,0.08);">
+        <div class="event-datetime-row">
+          <span class="edt-icon">📅</span>
+          <span class="edt-text" style="color:#3D1A00;">19 April 2026 &nbsp;·&nbsp; 12:00 PM onwards</span>
+        </div>
+        <div class="event-datetime-row" style="margin-top:0.3rem;">
+          <span class="edt-icon">📍</span>
+          <span class="edt-text" style="color:#3D1A00;">The Empire Resort, Gwalior</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -687,6 +778,17 @@
       <p class="event-desc fade-in" style="transition-delay:0.34s">
         An evening of melodies, laughter, and memories —<br><em>let the music lead</em>
       </p>
+
+      <div class="event-datetime fade-in" style="transition-delay:0.4s;border-color:rgba(239,200,255,0.3);background:rgba(239,200,255,0.07);">
+        <div class="event-datetime-row">
+          <span class="edt-icon">📅</span>
+          <span class="edt-text" style="color:rgba(255,255,255,0.85);">19 April 2026 &nbsp;·&nbsp; 7:00 PM onwards</span>
+        </div>
+        <div class="event-datetime-row" style="margin-top:0.3rem;">
+          <span class="edt-icon">📍</span>
+          <span class="edt-text" style="color:rgba(255,255,255,0.85);">The Empire Resort, Gwalior</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -720,6 +822,19 @@
       <p class="event-desc fade-in" style="transition-delay:0.34s">
         Seven sacred vows. One beautiful beginning.<br><em>Saat Phere, Ek Jeevan.</em>
       </p>
+
+      <div class="event-datetime fade-in" style="transition-delay:0.4s;border-color:rgba(201,168,76,0.35);background:rgba(201,168,76,0.08);">
+        <div class="event-datetime-row">
+          <span class="edt-icon"></span>
+          <span class="edt-text" style="color:var(--gold-light);">20 April 2026 &nbsp;·&nbsp; 7:00 PM onwards</span>
+        </div>
+        <div class="event-datetime-row" style="margin-top:0.3rem;">
+          <span class="edt-icon"></span>
+          <span class="edt-text" style="color:rgba(255,255,255,0.75);">The Empire Resort, Gwalior</span>
+        </div>
+      </div>
+
+      <div class="countdown fade-in" id="countdown" style="transition-delay:0.48s"></div>
     </div>
   </section>
 
@@ -743,34 +858,47 @@
         <div class="divider-line"></div>
       </div>
 
-      <div class="parents-grid fade-in" style="transition-delay:0.18s">
-        <div class="parent-card">
-          <div class="pc-label">Groom's Family</div>
-          <div class="pc-photo">
-            <img src="https://i.postimg.cc/PvWLPxnG/grok-image-1c8dfde3-58c3-46ec-8d2c-166fcf6494d7-removebg-preview.png" alt="Groom's Parents">
+      <!-- GRANDPARENTS -->
+      <!-- FAMILIES -->
+      <div class="families-grid fade-in" style="transition-delay:0.15s">
+
+        <!-- GROOM'S SIDE -->
+        <div class="family-col">
+          <div class="family-col-header">Groom's Family</div>
+          <div class="family-col-box">
+            <div class="gp-name">Mrs. Kusum &amp;<br>Mr. Akhilendu Arjeria</div>
+            <div class="gp-note">(IAS Rtd.)</div>
+            <div class="family-col-sep"></div>
+            <div class="pc-name">Sudhanshu &amp;<br>Kirti Arjeria</div>
           </div>
-          <div class="pc-name">Sudhanshu &amp;<br>Kirti Arjeria</div>
         </div>
-        <div class="parent-card">
-          <div class="pc-label">Bride's Family</div>
-          <div class="pc-photo">
-            <img src="https://i.postimg.cc/PvWLPxnk/grok-image-4e0e69b3-eb35-4393-8d1a-540921e3b0e5-removebg-preview.png" alt="Bride's Parents">
+
+        <div class="families-divider">🙏</div>
+
+        <!-- BRIDE'S SIDE -->
+        <div class="family-col">
+          <div class="family-col-header">Bride's Family</div>
+          <div class="family-col-box">
+            <div class="gp-name">Mrs. Prakashvati &amp;<br>Late Mr. O. P. Sharma</div>
+            <div class="gp-note">&nbsp;</div>
+            <div class="family-col-sep"></div>
+            <div class="pc-name">Arun &amp;<br>Aruna Gaur</div>
           </div>
-          <div class="pc-name">Arun &amp;<br>Aruna Gaur</div>
         </div>
+
       </div>
 
-      <div class="divider fade-in" style="transition-delay:0.28s;max-width:100%">
+      <div class="divider fade-in" style="transition-delay:0.38s;max-width:100%">
         <div class="divider-line"></div>
         <div class="divider-gem"></div>
         <div class="divider-line"></div>
       </div>
 
-      <p class="blessings-footer fade-in" style="transition-delay:0.34s">
+      <p class="blessings-footer fade-in" style="transition-delay:0.44s">
         We joyfully await your presence &amp; blessings
       </p>
 
-      <div class="event-stamp fade-in" style="transition-delay:0.42s">
+      <div class="event-stamp fade-in" style="transition-delay:0.52s">
         20 April 2026 &nbsp;·&nbsp; The Empire Resort, Gwalior
       </div>
     </div>
@@ -848,4 +976,4 @@
   }, 150);
 </script>
 </body>
-</html> 
+</html>

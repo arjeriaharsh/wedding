@@ -373,39 +373,27 @@
 
   .event-img-frame {
     position: relative;
-    margin: 1rem 0;
-    width: min(75vw, 270px);
+    margin: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .event-img-frame::before,
-  .event-img-frame::after {
-    content: '';
-    position: absolute;
-    width: 30px; height: 30px;
-    border-color: var(--gold);
-    border-style: solid;
-    opacity: 0.6;
-    z-index: 6;
-  }
-  .event-img-frame::before { top: -6px; left: -6px; border-width: 2px 0 0 2px; }
-  .event-img-frame::after  { bottom: -6px; right: -6px; border-width: 0 2px 2px 0; }
 
   .event-img-inner {
-    width: 100%;
-    aspect-ratio: 3/4;
-    border-radius: 0.6rem;
-    overflow: hidden;
-    box-shadow: 0 16px 50px rgba(0,0,0,0.5);
     position: relative;
     z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .event-img-inner img {
-    width: 100%; height: 100%;
-    object-fit: cover;
     display: block;
-  }
-  .event-img-inner.contain img {
+    max-height: min(42vh, 320px);
+    max-width: min(80vw, 300px);
+    width: auto;
+    height: auto;
     object-fit: contain;
-    background: transparent;
+    filter: drop-shadow(0 12px 30px rgba(0,0,0,0.5));
   }
 
   .event-desc {
@@ -658,7 +646,7 @@
       </div>
 
       <div class="event-img-frame fade-in" style="transition-delay:0.28s">
-        <div class="event-img-inner contain" style="border-radius:50% 35% 50% 35% / 35% 50% 35% 50%">
+        <div class="event-img-inner">
           <img src="https://i.postimg.cc/vxr1cBw8/grok-image-7949f46b-6c8d-4a6f-882b-38cd83d83f2a-removebg-preview.png" alt="Haldi">
         </div>
       </div>
@@ -691,7 +679,7 @@
       </div>
 
       <div class="event-img-frame fade-in" style="transition-delay:0.28s">
-        <div class="event-img-inner contain" style="border-radius:35% 50% 35% 50% / 50% 35% 50% 35%">
+        <div class="event-img-inner">
           <img src="https://i.postimg.cc/YL64h9BB/grok-image-3db72e87-2fdb-4985-9e4d-66cc86250837-removebg-preview.png" alt="Sangeet">
         </div>
       </div>
@@ -724,7 +712,7 @@
       </div>
 
       <div class="event-img-frame fade-in" style="transition-delay:0.28s">
-        <div class="event-img-inner contain" style="border-radius:45% 20% 45% 20% / 20% 45% 20% 45%">
+        <div class="event-img-inner">
           <img src="https://i.postimg.cc/m1YctDWg/grok-image-beb418ea-2312-433d-ad54-4da5049ba430-removebg-preview.png" alt="Wedding">
         </div>
       </div>

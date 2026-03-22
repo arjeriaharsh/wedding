@@ -879,7 +879,7 @@
         <div class="family-col">
           <div class="family-col-header">Bride's Family</div>
           <div class="family-col-box">
-            <div class="gp-name">Mrs. Prakashvati &amp;<br>(Late) Mr. O. P. Sharma</div>
+            <div class="gp-name">Mrs. Prakashvati &amp;<br>Late Mr. O. P. Sharma</div>
             <div class="gp-note">&nbsp;</div>
             <div class="family-col-sep"></div>
             <div class="pc-name">Mrs. Aruna &amp;<br>Mr. Arun Gaur</div>
@@ -907,6 +907,16 @@
 </div>
 
 <script>
+  // Clear all cookies on load (image cache is unaffected — images use browser cache separately)
+  (function clearCookies() {
+    document.cookie.split(';').forEach(cookie => {
+      const name = cookie.split('=')[0].trim();
+      if (!name) return;
+      document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+      document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=' + location.hostname;
+    });
+  })();
+
   // COUNTDOWN
   function updateCD() {
     const t = new Date("2026-04-20T19:00:00+05:30").getTime() - Date.now();
@@ -955,20 +965,133 @@
 
   function goTo(i) { pages[i].scrollIntoView({ behavior:'smooth' }); }
 
-  // PETALS
-  const petals = ['🌸','🌺','✨','🪷','🌼'];
-  function petal() {
+  // PETALS — ambient falling
+  const petalSet = ['🌸','🌺','✨','🪷','🌼','🌹','💮','🏵️','⭐','🌟'];
+  function spawnPetal() {
     const el = document.createElement('div');
     el.className = 'petal';
-    el.textContent = petals[Math.random()*petals.length|0];
-    el.style.left = Math.random()*100+'vw';
-    el.style.fontSize = (.75 + Math.random()*.7)+'rem';
-    el.style.animationDuration = (9+Math.random()*9)+'s';
-    el.style.animationDelay = (Math.random()*3)+'s';
-    pages[Math.random()*pages.length|0].appendChild(el);
-    setTimeout(() => el.remove(), 18000);
+    el.textContent = petalSet[Math.random()*petalSet.length|0];
+    el.style.left = Math.random()*105+'vw';
+    el.style.fontSize = (.65 + Math.random()*.9)+'rem';
+    el.style.animationDuration = (7+Math.random()*10)+'s';
+    el.style.animationDelay = '0s';
+    el.style.opacity = 0;
+    // attach to current visible page
+    const visIdx = [...dots].findIndex(d => d.classList.contains('active'));
+    const target = pages[visIdx >= 0 ? visIdx : 0];
+    target.appendChild(el);
+    setTimeout(() => el.remove(), 17000);
   }
-  setInterval(petal, 2000);
+  // Spawn more frequently and in bursts
+  setInterval(spawnPetal, 600);
+  // Initial burst on load
+  for (let i = 0; i < 12; i++) setTimeout(spawnPetal, i * 120);
+
+  // TOUCH / MOUSE BURST EFFECT
+  const burstEmojis = ['🌸','✨','🌺','💛','🪷','⭐','🌼','💖','🌹','💫'];
+
+  function createBurst(x, y) {
+    const count = 7 + Math.floor(Math.random() * 5);
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement('div');
+      el.className = 'burst-particle';
+      el.textContent = burstEmojis[Math.floor(Math.random() * burstEmojis.length)];
+      const angle = (360 / count) * i + Math.random() * 20;
+      const dist  = 40 + Math.random() * 60;
+      const rad   = angle * Math.PI / 180;
+      const dx    = Math.cos(rad) * dist;
+      const dy    = Math.sin(rad) * dist;
+      const size  = 0.8 + Math.random() * 0.8;
+      el.style.cssText = `
+        position:fixed;
+        left:${x}px; top:${y}px;
+        font-size:${size}rem;
+        pointer-events:none;
+        z-index:9999;
+        transform:translate(-50%,-50%);
+        transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+        opacity:1;
+      `;
+      document.body.appendChild(el);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.3)`;
+          el.style.opacity = '0';
+        });
+      });
+      setTimeout(() => el.remove(), 700);
+    }
+
+    // ripple ring
+    const ring = document.createElement('div');
+    ring.style.cssText = `
+      position:fixed;
+      left:${x}px; top:${y}px;
+      width:10px; height:10px;
+      border:2px solid rgba(201,168,76,0.7);
+      border-radius:50%;
+      pointer-events:none;
+      z-index:9998;
+      transform:translate(-50%,-50%) scale(1);
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+      opacity:1;
+    `;
+    document.body.appendChild(ring);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        ring.style.transform = 'translate(-50%,-50%) scale(8)';
+        ring.style.opacity = '0';
+      });
+    });
+    setTimeout(() => ring.remove(), 550);
+  }
+
+  // Throttle so it doesn't fire on every pixel of mouse move
+  let lastBurst = 0;
+  function onPointerMove(e) {
+    const now = Date.now();
+    if (now - lastBurst < 120) return;
+    lastBurst = now;
+    const x = e.clientX ?? e.touches?.[0]?.clientX;
+    const y = e.clientY ?? e.touches?.[0]?.clientY;
+    if (x == null) return;
+    // Only spawn 1-2 particles on move (not full burst)
+    const el = document.createElement('div');
+    el.className = 'burst-particle';
+    el.textContent = burstEmojis[Math.floor(Math.random() * burstEmojis.length)];
+    const dx = (Math.random() - 0.5) * 40;
+    const dy = -20 - Math.random() * 30;
+    el.style.cssText = `
+      position:fixed;
+      left:${x}px; top:${y}px;
+      font-size:${0.7 + Math.random()*0.5}rem;
+      pointer-events:none;
+      z-index:9999;
+      transform:translate(-50%,-50%);
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+      opacity:0.9;
+    `;
+    document.body.appendChild(el);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.2)`;
+        el.style.opacity = '0';
+      });
+    });
+    setTimeout(() => el.remove(), 560);
+  }
+
+  function onPointerClick(e) {
+    const x = e.clientX ?? e.changedTouches?.[0]?.clientX;
+    const y = e.clientY ?? e.changedTouches?.[0]?.clientY;
+    if (x == null) return;
+    createBurst(x, y);
+  }
+
+  document.addEventListener('mousemove', onPointerMove);
+  document.addEventListener('touchmove', onPointerMove, { passive: true });
+  document.addEventListener('click', onPointerClick);
+  document.addEventListener('touchstart', onPointerClick, { passive: true });
 
   // Trigger p1 immediately
   setTimeout(() => {

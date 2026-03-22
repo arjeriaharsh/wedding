@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Harsh ❤️ Nidhi • Shubh Vivah 2026 ✨🪔</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&amp;display=swap');
+        
+        :root {
+            --saffron: #FF9933;
+            --deep-red: #C8102E;
+            --gold: #FFD700;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #FFF8F0;
+            color: #3D2B1F;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .snap-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+        
+        .snap-page {
+            height: 100vh;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .heading { 
+            font-family: 'Playfair Display', serif; 
+            text-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
+        }
+        
+        .character {
+            position: absolute;
+            bottom: 12%;
+            width: 180px;
+            filter: drop-shadow(0 25px 30px rgba(0,0,0,0.35));
+            z-index: 10;
+            transition: transform 0.6s ease-out;
+        }
+        
+        .left { left: 10%; animation: float 4s ease-in-out infinite; }
+        .right { right: 10%; animation: float 4.5s ease-in-out infinite reverse; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-8deg); }
+            50% { transform: translateY(-35px) rotate(8deg); }
+        }
+        
+        /* Floral Gear Mandalas - rotating with scroll */
+        .floral-gear {
+            position: fixed;
+            font-size: 5.5rem;
+            opacity: 0.12;
+            z-index: 5;
+            pointer-events: none;
+            transition: transform 0.1s linear;
+            filter: drop-shadow(0 10px 20px var(--saffron));
+        }
+        .gear1 { left: 4%; top: 18%; }
+        .gear2 { right: 5%; top: 35%; transform: scale(0.85) rotate(45deg); }
+        .gear3 { left: 6%; bottom: 22%; transform: scale(1.1); }
+        .gear4 { right: 4%; bottom: 28%; }
+        
+        .particle {
+            position: absolute;
+            font-size: 2.8rem;
+            animation: petal-fall 8s linear infinite;
+            opacity: 0.75;
+            z-index: 8;
+        }
+        @keyframes petal-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(300vh) rotate(720deg); }
+        }
+        
+        .garland {
+            position: absolute;
+            top: -12%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3.8rem;
+            animation: swing 4s ease-in-out infinite;
+            z-index: 15;
+        }
+        @keyframes swing {
+            0%,100% { transform: translateX(-50%) rotate(-12deg); }
+            50% { transform: translateX(-50%) rotate(12deg); }
+        }
+        
+        .ganesh {
+            position: absolute;
+            top: 5%;
+            width: 140px;
+            opacity: 0.95;
+            z-index: 6;
+            animation: gentle-bob 6s ease-in-out infinite;
+        }
+        
+        .countdown {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(90deg, var(--gold), #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Hindu mandala subtle background */
+        .snap-page::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(255,153,51,0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="bg-[#FFF8F0]">
+    <div class="snap-container" id="snapContainer">
+        
+        <!-- PAGE 1: HERO - Ultra modern Hindu welcome -->
+        <section id="hero" class="snap-page relative bg-gradient-to-br from-[#FF9933] via-[#C8102E] to-[#FFD700] text-white overflow-hidden">
+            <!-- Floating Floral Gears -->
+            <div class="floral-gear gear1 text-7xl">🪔🌸</div>
+            <div class="floral-gear gear2 text-6xl">🌺🕉️</div>
+            <div class="floral-gear gear3 text-8xl">🌼🪔</div>
+            <div class="floral-gear gear4 text-5xl">🌸🕉️</div>
+            
+            <img class="ganesh" src="https://i.postimg.cc/BP9LSFk0/f95f5c2b-bf3e-4113-9ed6-1d47908f193b-removebg-preview.png" alt="Lord Ganesha blessing">
+            
+            <!-- Your cute caricatures - now with gentle floating movement -->
+            <img class="character left" id="harshChar" src="https://i.postimg.cc/n94sCzfM/Harsh-1-removebg-preview.png" alt="Harsh Arjeria caricature">
+            <img class="character right" id="nidhiChar" src="https://i.postimg.cc/JysGjKWm/grok-image-7e2d8447-38a4-400d-a353-e353c5f3e7a5-1-removebg-preview.png" alt="Nidhi Gaur bride caricature">
+            
+            <div class="z-20 px-6 max-w-2xl text-center">
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <div class="h-px w-12 bg-white/70"></div>
+                    <i class="fa-solid fa-diya text-4xl animate-pulse"></i>
+                    <div class="h-px w-12 bg-white/70"></div>
+                </div>
+                
+                <h1 class="heading text-7xl md:text-8xl font-bold tracking-widest drop-shadow-2xl">Harsh Arjeria</h1>
+                <div class="my-6 text-8xl animate-bounce">💞🪔</div>
+                <h1 class="heading text-7xl md:text-8xl font-bold tracking-widest drop-shadow-2xl">Nidhi Gaur</h1>
+                
+                <div class="mt-8 mb-6">
+                    <div id="countdown" class="countdown text-4xl md:text-5xl font-bold tracking-widest"></div>
+                </div>
+                
+                <p class="text-2xl md:text-3xl font-light tracking-widest">20 April 2026 • 7 PM onwards</p>
+                <p class="text-xl md:text-2xl mt-2 opacity-90">The Empire Resort, Gwalior • Madhya Pradesh</p>
+                
+                <div onclick="document.getElementById('snapContainer').scrollBy({top: window.innerHeight, behavior: 'smooth'})" 
+                     class="mt-12 mx-auto w-14 h-14 border-2 border-white/80 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-all">
+                    <i class="fa-solid fa-arrow-down text-2xl animate-bounce"></i>
+                </div>
+            </div>
+            
+            <!-- Falling rose petals -->
+            <div class="particle" style="left:10%; animation-delay:0s;">🌹</div>
+            <div class="particle" style="left:25%; animation-delay:1.2s;">🪷</div>
+            <div class="particle" style="left:45%; animation-delay:2.8s;">🌸</div>
+            <div class="particle" style="left:68%; animation-delay:0.7s;">🪔</div>
+            <div class="particle" style="left:82%; animation-delay:3.5s;">🌼</div>
+        </section>
+        
+        <!-- PAGE 2: HALDI - Golden playful love -->
+        <section id="haldi" class="snap-page bg-gradient-to-b from-[#FFFDE7] to-[#FFECB3] text-orange-900">
+            <h2 class="heading text-6xl md:text-7xl font-bold mb-3">Haldi</h2>
+            <p class="text-xl text-orange-700 mb-8">Golden glow, laughter &amp; blessings 🌼</p>
+            
+            <div class="relative w-80 h-80 md:w-[420px] md:h-[420px] mx-auto rounded-3xl overflow-hidden shadow-2xl ring-8 ring-orange-200">
+                <img src="https://i.postimg.cc/vxr1cBw8/grok-image-7949f46b-6c8d-4a6f-882b-38cd83d83f2a-removebg-preview.png" 
+                     alt="Harsh &amp; Nidhi Haldi moment" class="w-full h-full object-cover">
+            </div>
+            
+            <p class="mt-10 max-w-md text-lg font-light leading-relaxed">
+                Harsh &amp; Nidhi share turmeric smiles as the boat of love sails into forever 🌼🪔
+            </p>
+        </section>
+        
+        <!-- PAGE 3: SANGEET - Dance &amp; dhol magic -->
+        <section id="sangeet" class="snap-page bg-gradient-to-b from-[#FCE4EC] to-[#F8BBD0] text-pink-900">
+            <h2 class="heading text-6xl md:text-7xl font-bold mb-3">Sangeet</h2>
+            <p class="text-xl text-pink-700 mb-8">Dhol beats, twinkling lights &amp; pure joy ✨</p>
+            
+            <div class="relative w-80 h-80 md:w-[420px] md:h-[420px] mx-auto rounded-3xl overflow-hidden shadow-2xl ring-8 ring-pink-200">
+                <img src="https://i.postimg.cc/YL64h9BB/grok-image-3db72e87-2fdb-4985-9e4d-66cc86250837-removebg-preview.png" 
+                     alt="Harsh &amp; Nidhi Sangeet celebration" class="w-full h-full object-cover">
+            </div>
+            
+            <p class="mt-10 max-w-md text-lg font-light leading-relaxed">
+                Our hearts dance together under the stars while the dhol echoes our love story 💃🕺
+            </p>
+        </section>
+        
+        <!-- PAGE 4: WEDDING - Pheras &amp; eternal vows -->
+        <section id="wedding" class="snap-page bg-gradient-to-b from-[#FFEBEE] to-[#EF9A9A] text-red-900 relative">
+            <h2 class="heading text-6xl md:text-7xl font-bold mb-3">The Wedding</h2>
+            <p class="text-xl mb-8">Pheras around the sacred fire • Forever begins ❤️</p>
+            
+            <div class="relative w-80 h-80 md:w-[420px] md:h-[420px] mx-auto rounded-3xl overflow-hidden shadow-2xl ring-8 ring-red-200">
+                <img src="https://i.postimg.cc/m1YctDWg/grok-image-beb418ea-2312-433d-ad54-4da5049ba430-removebg-preview.png" 
+                     alt="Harsh &amp; Nidhi exchanging garlands" class="w-full h-full object-cover">
+                <div class="garland">🌺🌼🌸🌺🌼🌸🌺</div>
+            </div>
+            
+            <p class="mt-10 max-w-md text-lg font-light leading-relaxed">
+                Garlands of love exchanged • Two souls become one under Lord Ganesha’s divine blessings 🪔
+            </p>
+        </section>
+        
+        <!-- PAGE 5: BLESSINGS - Family &amp; grandparents -->
+        <section id="blessings" class="snap-page bg-gradient-to-br from-[#FF9800] to-[#C8102E] text-white">
+            <h2 class="heading text-5xl md:text-6xl font-bold mb-8">With Grandparents’ Blessings</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-3xl px-4">
+                <!-- Groom side -->
+                <div class="bg-white/15 backdrop-blur-xl p-8 rounded-3xl border border-white/30">
+                    <img src="https://i.postimg.cc/PvWLPxnG/grok-image-1c8dfde3-58c3-46ec-8d2c-166fcf6494d7-removebg-preview.png" 
+                         alt="Sudhanshu &amp; Kirti Arjeria" class="w-36 h-36 rounded-2xl mx-auto object-cover shadow-xl ring-4 ring-white/50">
+                    <p class="mt-6 text-2xl font-medium">Harsh Arjeria</p>
+                    <p class="text-sm mt-3 opacity-90 leading-tight">
+                        Son of Sudhanshu Arjeria &amp; Kirti Arjeria<br>
+                        Grandson of Mrs. Kusum Arjeria &amp; Mr. Akhilendu Arjeria (Rtd. IAS)
+                    </p>
+                </div>
+                
+                <!-- Bride side -->
+                <div class="bg-white/15 backdrop-blur-xl p-8 rounded-3xl border border-white/30">
+                    <img src="https://i.postimg.cc/PvWLPxnk/grok-image-4e0e69b3-eb35-4393-8d1a-540921e3b0e5-removebg-preview.png" 
+                         alt="Arun &amp; Aruna Gaur" class="w-36 h-36 rounded-2xl mx-auto object-cover shadow-xl ring-4 ring-white/50">
+                    <p class="mt-6 text-2xl font-medium">Nidhi Gaur</p>
+                    <p class="text-sm mt-3 opacity-90 leading-tight">
+                        Daughter of Arun Gaur &amp; Aruna Gaur<br>
+                        Granddaughter of Mrs. Prakashvati Sharma &amp; Late Mr. O.P. Sharma
+                    </p>
+                </div>
+            </div>
+            
+            <p class="mt-16 text-3xl font-light tracking-wider">We can’t wait to celebrate with YOU! 🪔🌸</p>
+            
+            <!-- Final call-to-action -->
+            <button onclick="window.scrollTo({top:0,behavior:'smooth'})" 
+                    class="mt-10 px-10 py-4 bg-white text-red-700 rounded-2xl font-medium flex items-center gap-3 mx-auto hover:scale-105 transition-all shadow-xl">
+                <i class="fa-solid fa-heart"></i>
+                SAVE THE DATE
+            </button>
+        </section>
+    </div>
+
+    <!-- Scroll-triggered floral gears script -->
+    <script>
+        // Tailwind script init
+        function initTailwind() {
+            // Already configured via CDN
+        }
+        
+        // Live countdown to 20 April 2026 19:00
+        function startCountdown() {
+            const weddingDate = new Date("2026-04-20T19:00:00").getTime();
+            
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "WE ARE MARRIED! 💍";
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById("countdown").innerHTML = 
+                    `${days}d ${hours}h ${minutes}m`;
+            }, 60000);
+        }
+        
+        // Floral gears rotate with scroll (sacred mandala effect)
+        function rotateFloralGears() {
+            const gears = document.querySelectorAll('.floral-gear');
+            const container = document.getElementById('snapContainer');
+            
+            container.addEventListener('scroll', () => {
+                const scrollY = container.scrollTop;
+                gears.forEach((gear, index) => {
+                    const speed = (index % 2 === 0) ? 0.6 : -0.45;
+                    const rotation = scrollY * speed;
+                    gear.style.transform = `rotate(${rotation}deg)`;
+                });
+                
+                // Parallax character movement on hero only
+                const hero = document.getElementById('hero');
+                if (container.scrollTop < window.innerHeight * 0.6) {
+                    const progress = container.scrollTop / window.innerHeight;
+                    document.getElementById('harshChar').style.transform = `translateY(${progress * -60}px) rotate(-${progress * 12}deg)`;
+                    document.getElementById('nidhiChar').style.transform = `translateY(${progress * -40}px) rotate(${progress * 12}deg)`;
+                }
+            });
+        }
+        
+        // Add more falling petals dynamically
+        function createExtraPetals() {
+            const hero = document.getElementById('hero');
+            for (let i = 0; i < 12; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'particle';
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDelay = Math.random() * 6 + 's';
+                petal.style.fontSize = (2 + Math.random() * 2) + 'rem';
+                petal.textContent = ['🌹','🪷','🌸','🌼'][Math.floor(Math.random()*4)];
+                hero.appendChild(petal);
+            }
+        }
+        
+        // Keyboard navigation (modern touch)
+        function keyboardScroll() {
+            document.addEventListener('keydown', e => {
+                const container = document.getElementById('snapContainer');
+                if (e.key === 'ArrowDown') container.scrollBy({top: window.innerHeight, behavior: 'smooth'});
+                if (e.key === 'ArrowUp') container.scrollBy({top: -window.innerHeight, behavior: 'smooth'});
+            });
+        }
+        
+        // Initialize everything
+        window.onload = function() {
+            initTailwind();
+            startCountdown();
+            rotateFloralGears();
+            createExtraPetals();
+            keyboardScroll();
+            
+            // Click anywhere on hero to scroll (super intuitive)
+            document.getElementById('hero').addEventListener('click', () => {
+                document.getElementById('snapContainer').scrollBy({top: window.innerHeight, behavior: 'smooth'});
+            });
+            
+            console.log('%c❤️ Harsh & Nidhi Shubh Vivah 2026 – Digital Invitation Ready! ✨', 'color:#C8102E; font-family:Playfair Display; font-size:18px');
+        };
+    </script>
+</body>
+</html>

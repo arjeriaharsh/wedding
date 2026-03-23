@@ -1423,49 +1423,58 @@
   }, 150);
 
   // BACKGROUND MUSIC
-  const audio     = document.getElementById('bgMusic');
-  const musicBtn  = document.getElementById('musicBtn');
-  const musicRing = document.getElementById('musicRing');
+  const audio      = document.getElementById('bgMusic');
+  const musicBtn   = document.getElementById('musicBtn');
+  const musicRing  = document.getElementById('musicRing');
   const musicLabel = document.getElementById('musicLabel');
   audio.volume = 0.35;
+  let userMuted = false;
 
-  function setPlaying(playing) {
-    if (playing) {
-      audio.play().catch(() => {});
-      musicBtn.classList.remove('muted');
+  function startMusic() {
+    if (userMuted) return;
+    audio.play().then(() => {
       musicRing.classList.add('playing');
+      musicBtn.classList.remove('muted');
       musicLabel.textContent = 'Music';
-    } else {
+    }).catch(() => {});
+  }
+
+  // Music button ONLY mutes/unmutes — never used to start/stop
+  musicBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // don't let this also trigger the global startMusic
+    if (audio.paused && !userMuted) {
+      // wasn't playing yet, start it
+      startMusic();
+    } else if (!audio.paused) {
+      // playing → mute
+      userMuted = true;
       audio.pause();
       musicBtn.classList.add('muted');
       musicRing.classList.remove('playing');
       musicLabel.textContent = 'Muted';
+    } else {
+      // was muted → unmute
+      userMuted = false;
+      startMusic();
     }
-  }
-
-  musicBtn.addEventListener('click', () => setPlaying(audio.paused));
-
-  // Try immediate autoplay; browsers may block it until user interaction
-  audio.play().then(() => {
-    musicRing.classList.add('playing');
-  }).catch(() => {
-    // Blocked — Android/Chrome require a real touch gesture (not scroll)
-    // Hook touchstart on the snap container and body for earliest possible trigger
-    function tryAutoplay(e) {
-      audio.play().then(() => {
-        musicRing.classList.add('playing');
-        musicBtn.classList.remove('muted');
-        musicLabel.textContent = 'Music';
-      }).catch(() => {});
-      document.removeEventListener('touchstart', tryAutoplay);
-      document.removeEventListener('click', tryAutoplay);
-      document.getElementById('snapWrap').removeEventListener('touchstart', tryAutoplay);
-    }
-    // Listen on both body and the scroll container so either catches it
-    document.addEventListener('touchstart', tryAutoplay, { passive: true, once: true });
-    document.addEventListener('click', tryAutoplay, { once: true });
-    document.getElementById('snapWrap').addEventListener('touchstart', tryAutoplay, { passive: true, once: true });
   });
+
+  // ANY touch or click anywhere on page starts music (but never pauses it)
+  function globalStartMusic() {
+    if (!audio.paused || userMuted) return;
+    startMusic();
+  }
+  document.addEventListener('touchstart', globalStartMusic, { passive: true });
+  document.addEventListener('click', globalStartMusic);
+
+  // Also wire every .page-nav-btn to start music on press
+  document.querySelectorAll('.page-nav-btn').forEach(btn => {
+    btn.addEventListener('touchstart', startMusic, { passive: true });
+    btn.addEventListener('click', startMusic);
+  });
+
+  // Try immediate autoplay on load
+  startMusic();
 </script>
 </body>
 </html>

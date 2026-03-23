@@ -4,6 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Harsh ❤️ Nidhi • Shubh Vivah 2026</title>
+
+  <!-- Open Graph / WhatsApp link preview -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Harsh ❤️ Nidhi • Shubh Vivah — 20 April 2026">
+  <meta property="og:description" content="Join us to celebrate the wedding of Harsh Arjeria & Nidhi Gaur. 20 April 2026 · 7 PM onwards · The Empire Resort, Gwalior">
+  <meta property="og:image"       content="https://i.postimg.cc/m1YctDWg/grok-image-beb418ea-2312-433d-ad54-4da5049ba430-removebg-preview.png">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale"      content="en_IN">
+
+  <!-- Twitter / iMessage fallback -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Harsh ❤️ Nidhi • Shubh Vivah — 20 April 2026">
+  <meta name="twitter:description" content="Join us to celebrate the wedding of Harsh Arjeria & Nidhi Gaur. 20 April 2026 · 7 PM onwards · The Empire Resort, Gwalior">
+  <meta name="twitter:image"       content="https://i.postimg.cc/m1YctDWg/grok-image-beb418ea-2312-433d-ad54-4da5049ba430-removebg-preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Great+Vibes&family=Cinzel:wght@400;600;900&family=Lato:wght@300;400&display=swap" rel="stylesheet">
@@ -615,6 +630,102 @@
     .corner-svg { width: 120px; height: 120px; }
     .ganesh-top { width: 85px; }
   }
+
+  /* DRESS CODE PILL */
+  .dress-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+    padding: 0.4rem 1.2rem;
+    border: 1px solid;
+    border-radius: 2rem;
+    width: fit-content;
+  }
+  .dress-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .dress-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  /* FAMILY PAGE */
+  .family-page-inner {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 1.5rem 2.5rem;
+    min-height: 100dvh;
+    justify-content: center;
+    gap: 0.6rem;
+    overflow-y: auto;
+  }
+  .family-page-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.4rem, 9vw, 3.8rem);
+    color: var(--gold-light);
+    text-align: center;
+    text-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    line-height: 1;
+  }
+  .fam-section {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 0.6rem;
+    overflow: hidden;
+  }
+  .fam-section-head {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,168,76,0.08);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 0.45rem 0.9rem;
+    text-align: center;
+  }
+  .fam-names {
+    padding: 0.5rem 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .fam-name-row {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.78rem, 2.4vw, 0.9rem);
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    line-height: 1.4;
+    padding: 0.1rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.07);
+  }
+  .fam-name-row:last-child { border-bottom: none; }
+  .fam-note {
+    font-style: normal;
+    font-size: 0.8em;
+    color: var(--gold);
+    letter-spacing: 0.03em;
+  }
+  .fam-kids {
+    color: rgba(255,255,255,0.7);
+    font-size: clamp(0.72rem, 2.2vw, 0.82rem);
+    letter-spacing: 0.02em;
+  }
 </style>
 </head>
 <body>
@@ -625,6 +736,7 @@
   <div class="nav-dot" onclick="goTo(2)"></div>
   <div class="nav-dot" onclick="goTo(3)"></div>
   <div class="nav-dot" onclick="goTo(4)"></div>
+  <div class="nav-dot" onclick="goTo(5)"></div>
 </nav>
 
 <div class="snap-wrap" id="snapWrap">
@@ -745,6 +857,11 @@
           <span class="edt-text" style="color:#3D1A00;">The Empire Resort, Gwalior</span>
         </div>
       </div>
+
+      <div class="dress-code fade-in" style="transition-delay:0.46s;border-color:rgba(236,64,122,0.4);background:rgba(236,64,122,0.1);">
+        <span class="dress-label">Dress Code</span>
+        <span class="dress-value" style="color:#C2185B;">🌸 Pink</span>
+      </div>
     </div>
   </section>
 
@@ -788,6 +905,11 @@
           <span class="edt-icon">📍</span>
           <span class="edt-text" style="color:rgba(255,255,255,0.85);">The Empire Resort, Gwalior</span>
         </div>
+      </div>
+
+      <div class="dress-code fade-in" style="transition-delay:0.46s;border-color:rgba(239,200,255,0.4);background:rgba(239,200,255,0.1);">
+        <span class="dress-label" style="color:rgba(255,255,255,0.6);">Dress Code</span>
+        <span class="dress-value" style="color:#EFC8FF;">✨ Shimmer</span>
       </div>
     </div>
   </section>
@@ -835,6 +957,11 @@
       </div>
 
       <div class="countdown fade-in" id="countdown" style="transition-delay:0.48s"></div>
+
+      <div class="dress-code fade-in" style="transition-delay:0.54s;border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.1);">
+        <span class="dress-label">Dress Code</span>
+        <span class="dress-value" style="color:var(--gold-light);">👘 Ethnic &amp; Formals</span>
+      </div>
     </div>
   </section>
 
@@ -901,6 +1028,69 @@
       <div class="event-stamp fade-in" style="transition-delay:0.52s">
         20 April 2026 &nbsp;·&nbsp; The Empire Resort, Gwalior
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ PAGE 6: GROOM'S FAMILY ══════════════════ -->
+  <section class="page" id="p6" style="background:linear-gradient(145deg,#1A0A00 0%,#3D1200 40%,#6B1A00 70%,#8B3000 100%);">
+    <div class="pattern-bg"></div>
+    <div class="mandala-ring" style="width:560px;height:560px;z-index:2;border-color:rgba(201,168,76,0.07);"></div>
+    <div class="mandala-ring" style="width:340px;height:340px;z-index:2;border-color:rgba(201,168,76,0.05);animation-direction:reverse;animation-duration:16s;"></div>
+    <div class="gold-frame"></div>
+    <svg class="corner-svg tl" viewBox="0 0 90 90" fill="none"><path d="M0 0 Q60 0 60 60" stroke="#C9A84C" stroke-width="0.8" fill="none"/><path d="M0 0 Q35 0 35 35" stroke="#C9A84C" stroke-width="0.5" fill="none"/><circle cx="8" cy="8" r="3" stroke="#C9A84C" stroke-width="0.8" fill="none"/><circle cx="8" cy="8" r="1" fill="#C9A84C"/></svg>
+    <svg class="corner-svg tr" viewBox="0 0 90 90" fill="none"><path d="M0 0 Q60 0 60 60" stroke="#C9A84C" stroke-width="0.8" fill="none"/><path d="M0 0 Q35 0 35 35" stroke="#C9A84C" stroke-width="0.5" fill="none"/><circle cx="8" cy="8" r="3" stroke="#C9A84C" stroke-width="0.8" fill="none"/><circle cx="8" cy="8" r="1" fill="#C9A84C"/></svg>
+    <svg class="corner-svg bl" viewBox="0 0 90 90" fill="none"><path d="M0 0 Q60 0 60 60" stroke="#C9A84C" stroke-width="0.8" fill="none"/><circle cx="8" cy="8" r="3" stroke="#C9A84C" stroke-width="0.8" fill="none"/><circle cx="8" cy="8" r="1" fill="#C9A84C"/></svg>
+    <svg class="corner-svg br" viewBox="0 0 90 90" fill="none"><path d="M0 0 Q60 0 60 60" stroke="#C9A84C" stroke-width="0.8" fill="none"/><circle cx="8" cy="8" r="3" stroke="#C9A84C" stroke-width="0.8" fill="none"/><circle cx="8" cy="8" r="1" fill="#C9A84C"/></svg>
+
+    <div class="family-page-inner">
+      <div class="family-page-title fade-in">Groom's Family</div>
+
+      <div class="divider fade-in" style="transition-delay:0.08s;max-width:100%">
+        <div class="divider-line"></div><div class="divider-gem"></div><div class="divider-line"></div>
+      </div>
+
+      <!-- PATERNAL -->
+      <div class="fam-section fade-in" style="transition-delay:0.12s">
+        <div class="fam-section-head">🪷 Paternal Side</div>
+        <div class="fam-names">
+          <div class="fam-name-row">Mrs. Kusum &amp; Mr. Akhilendu Arjeria <span class="fam-note">(IAS Rtd.)</span></div>
+          <div class="fam-name-row">Mrs. Kirti &amp; Mr. Sudhanshu Arjeria</div>
+          <div class="fam-name-row">Mrs. Sudha &amp; Mr. Jai Prakash Arjeria</div>
+          <div class="fam-name-row">Mrs. Ruchi &amp; Mr. Prafull Arjeria</div>
+        </div>
+      </div>
+
+      <!-- MATERNAL -->
+      <div class="fam-section fade-in" style="transition-delay:0.2s">
+        <div class="fam-section-head">🌸 Maternal Side</div>
+        <div class="fam-names">
+          <div class="fam-name-row">Mrs. Girjesh &amp; Late Mr. R.K. Lavania</div>
+          <div class="fam-name-row">Mrs. Archana &amp; Mr. Sanjeev Lavania</div>
+          <div class="fam-name-row">Mrs. Jyoti &amp; Mr. Sudhir Vyas</div>
+          <div class="fam-name-row">Mrs. Deepti &amp; Mr. Rajesh Tiwari</div>
+        </div>
+      </div>
+
+      <!-- AWAITING -->
+      <div class="fam-section fade-in" style="transition-delay:0.28s">
+        <div class="fam-section-head">✨ Awaiting to Welcome</div>
+        <div class="fam-names">
+          <div class="fam-name-row">Mrs. Divya &amp; Mr. Rohit Lavania</div>
+          <div class="fam-name-row">Mrs. Nikita &amp; Mr. Nishant Vyas</div>
+          <div class="fam-name-row">Mrs. Vatsala &amp; Mr. Mohit Lavania</div>
+          <div class="fam-name-row">Mrs. Niharika &amp; Mr. Raj Pandey</div>
+          <div class="fam-name-row fam-kids">Ayush &nbsp;·&nbsp; Rashi &nbsp;·&nbsp; Ashi &nbsp;·&nbsp; Kushal &nbsp;·&nbsp; Ayushmaan</div>
+        </div>
+      </div>
+
+      <!-- LITTLE ONES -->
+      <div class="fam-section fade-in" style="transition-delay:0.36s">
+        <div class="fam-section-head">🧸 Little Ones</div>
+        <div class="fam-names">
+          <div class="fam-name-row fam-kids">Kiyansh &nbsp;·&nbsp; Ridhima &nbsp;·&nbsp; Aryana</div>
+        </div>
+      </div>
+
     </div>
   </section>
 

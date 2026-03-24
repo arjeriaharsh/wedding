@@ -412,7 +412,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2.5rem 1.5rem 2rem;
+    /* FIX: extra bottom padding so content never hides behind the Next button */
+    padding: 2.5rem 1.5rem 5rem;
     min-height: 100dvh;
     justify-content: center;
     gap: 0.3rem;
@@ -519,7 +520,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2.5rem 1.5rem 2rem;
+    /* FIX: extra bottom padding so content never hides behind the Next button */
+    padding: 2.5rem 1.5rem 5rem;
     min-height: 100dvh;
     justify-content: center;
     gap: 0.9rem;
@@ -694,6 +696,22 @@
     font-size: 0.95rem;
     font-weight: 600;
     font-style: italic;
+  }
+
+  /* FIX: Haldi dress code — override dress-label color for dark-on-light page */
+  #p2 .dress-label {
+    color: rgba(61,26,0,0.7);
+  }
+  /* FIX: Haldi dress code value — was too light (#C2185B on yellow). Use deep maroon for contrast */
+  #p2 .dress-value {
+    color: #7B0035 !important;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+  }
+  /* FIX: Haldi dress code border/bg */
+  #p2 .dress-code {
+    border-color: rgba(123,0,53,0.45) !important;
+    background: rgba(123,0,53,0.12) !important;
   }
 
   /* FAMILY PAGE */
@@ -958,9 +976,9 @@
         </div>
       </div>
 
-      <div class="dress-code fade-in" style="transition-delay:0.46s;border-color:rgba(236,64,122,0.4);background:rgba(236,64,122,0.1);">
+      <div class="dress-code fade-in" style="transition-delay:0.46s;">
         <span class="dress-label">Dress Code</span>
-        <span class="dress-value" style="color:#C2185B;">🌸 Pink</span>
+        <span class="dress-value">🌸 Pink</span>
       </div>
     </div>
   </section>
@@ -1260,8 +1278,6 @@
   const arrowSVG = `<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>`;
   pages.forEach((page, i) => {
     if (i === 0) {
-      // Add a jump-to-top button — only visible when NOT on page 0 (handled via active dot logic)
-      // page 0 already has its scroll-next in HTML; add back-to-top for completeness via page 1+ 
       return;
     }
     if (i === pages.length - 1) return; // no button on last page
